@@ -15,41 +15,47 @@ in this case >
                 }
 4. makae inner property in your custom adapter to handle data
 in this case >
+//
              int[] imgs = {};
                 String[] factory = {};
                 String[] names = {};
                 String[] year = {};
                 Context c;
                 LayoutInflater inflater;
+//
 note : lay out inflater use for handing instance looping creating layout each data in list view
 
 5. wiring your constructor to your property....
 in this case >
+//
              this.c = context;
              this.names =names;
              this.factory = factory;
              this.year = year;
              this.imgs = imgs;
-             
+//           
 6. make your own getview method (override)
 in this case >
+//
               @Override
                   public View getView(int position, View convertView, ViewGroup parent) {
                       if (convertView == null){
                           inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                           convertView = inflater.inflate(R.layout.customlist,null);
                       }
+//
 get view method is used for request a view every data in your custom list view
 
 7. make view holder for your view... its like wiring
 in this case >
+//
              public class ViewHolder{
                   TextView tvName;
                   TextView tvFactory;
                   TextView tvYear;
                   ImageView ivList;
               }
-              
+//            
 8. make view holder object
 in this case >
             // instance view holder
@@ -57,6 +63,7 @@ in this case >
             
 9. insance your view this also part of wiring
 inthis case >
+//
             // initialize view
             holder.tvName = (TextView) convertView.findViewById(R.id.txt_nama);
             holder.tvFactory = (TextView) convertView.findViewById(R.id.txt_pabrik);
